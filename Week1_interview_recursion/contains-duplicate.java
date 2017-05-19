@@ -5,7 +5,6 @@ public class Solution {
             if (seen.contains(nums[i])) return true;
             seen.add(nums[i]);
         }
-        return false;
-        
+        return false;  
     }
 }
