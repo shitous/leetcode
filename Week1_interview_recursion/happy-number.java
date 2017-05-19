@@ -1,8 +1,7 @@
 public class Solution {
     public boolean isHappy(int n) {
         HashSet<Integer> seen = new HashSet<Integer>();
-        return helper (seen, n);
-        
+        return helper (seen, n);   
     }
     private boolean helper(HashSet<Integer> seen, int n){
         int squaredSum =0;
@@ -15,6 +14,5 @@ public class Solution {
         if (seen.contains(squaredSum)) return false;
         seen.add(squaredSum);
         return helper(seen, squaredSum);
-        
     }
 }
