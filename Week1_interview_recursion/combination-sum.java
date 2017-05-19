@@ -3,7 +3,6 @@ public class Solution {
         List<List<Integer>> list = new ArrayList<>();
         backtrack(list, new ArrayList<Integer>(), candidates, target, 0);
         return list;
-        
     }
     private void backtrack(List<List<Integer>> list, List<Integer> tmplist, int [] candidates, int target, int start){
         if (target < 0) return; 
