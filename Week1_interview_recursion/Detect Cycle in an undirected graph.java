@@ -79,3 +79,55 @@ class Graph
 			System.out.println("Graph doesn't contains cycle");
 	}
 }
+
+
+    2. Detect Cycle in an undirected graph: BFS, DFS, Union Find
+
+Detect Cycle in a directed graph: DFS, http://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
+
+
+    enum Color {
+        WHITE, GRAY, BLACK;
+    }
+
+    /**
+     * http://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
+     * WHITE : Vertex is not processed yet. Initially all vertices are WHITE.
+     * 
+     * GRAY : Vertex is being processed (DFS for this vertex has started, but
+     * not finished which means that all descendants (ind DFS tree) of this
+     * vertex are not processed yet (or this vertex is in function call stack)
+     * 
+     * BLACK : Vertex and all its descendants are processed.
+     * 
+     * While doing DFS, if we encounter an edge from current vertex to a GRAY
+     * vertex, then this edge is back edge and hence there is a cycle.
+     */
+     // 1 -> 3
+     // 1 -> 2, 2 -> 3
+    public boolean hasCycle(GraphNode rootNode) {
+        // you can actually use two sets, one for processing and one for
+        // processed, this way you save space
+        return hasCycle(rootNode, new HashMap<>());
+    }
+
+    private boolean hasCycle(GraphNode rootNode, Map<GraphNode, Color> map) {
+        if (rootNode == null) {
+            return false;
+        }
+        // base case
+        Color state = map.getOrDefault(rootNode, Color.WHITE);
+        if (state == Color.GRAY) {
+            return true;
+        }
+        map.put(rootNode, Color.GRAY);
+
+        for (GraphNode node : rootNode.getChildren()) {
+            if (hasCycle(node, map)) {
+                return true;
+            }
+        }
+
+        map.put(rootNode, Color.BLACK);
+        return false;
+    }
