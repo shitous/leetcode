@@ -56,7 +56,7 @@ A solution set is:
         for (int i = start; i < candidates.length && target >= candidates[i]; i++) {
             cur.add(candidates[i]);
             combinationSum(result, cur, candidates, target - candidates[i], i);
-            //restore
+            //restore背下来
             cur.remove(cur.size() - 1);
         }
         return result;
