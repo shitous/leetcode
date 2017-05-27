@@ -1,7 +1,8 @@
 public class Solution {
     public int maxEnvelopes(int[][] envelopes) {
-        // transfer into longest increasing subsequence
+        // main idea: transfer into longest increasing subsequence
         if( envelopes== null || envelopes.length==0||envelopes[0]==null||envelopes[0].length!=2) return 0;
+	// sort envelopes, w in increasing order, h in decreasing order with the same w.
         Arrays.sort(envelopes, new Comparator<int []> (){
            public int compare (int[] arr1, int [] arr2){
                if(arr1[0]== arr2[0]) return arr2[1] - arr1[1];

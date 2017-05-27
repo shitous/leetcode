@@ -15,6 +15,9 @@ public class Solution {
         }
         return (int) r;
     }
+
+    // valid means we can divide the array nums into m subs while sum of each sub is less than or equal to mid.
+    // if not valid, we have to increase mid by 1 in binary search.
     private boolean valid(long mid, int [] nums, int m){
         int count = 1;
         long sum = 0;
