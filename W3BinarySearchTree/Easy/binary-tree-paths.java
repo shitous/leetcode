@@ -13,7 +13,6 @@ public class Solution {
         if (root == null) return res;
         binaryTreePaths(root, "");
         return res;
-        
     }
     private void binaryTreePaths(TreeNode root, String str) {
         if (root.left == null && root.right == null) {
@@ -29,7 +28,5 @@ public class Solution {
                 binaryTreePaths(root.right, str);
             }
         }
-        
-        
     }
 }
