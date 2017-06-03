@@ -10,7 +10,9 @@
 public class Solution {
     private List<String> res = new ArrayList<>();
     public List<String> binaryTreePaths(TreeNode root) {
-        if (root == null) return res;
+        if (root == null) {
+	    return res;
+	}
         binaryTreePaths(root, "");
         return res;
     }
